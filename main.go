@@ -1,12 +1,17 @@
 package main
 
 import (
+	"eth-viewer2/scan"
 	"eth-viewer2/test"
 	"log"
+	"time"
 )
 
 func main() {
-	address := "0xCC5d22bB804D7BFFc48BDAe7563Ba7843FE4928a"
+	address := "0x4363A7f50D7d91a791D1dc5971c83632D29196f0"
 	balance := test.GetBalance(address)
 	log.Println("address:" + address + "-------balance:" + balance.String())
+
+	scan.TestScanCurrent()
+	time.Sleep(2 * time.Second)
 }
