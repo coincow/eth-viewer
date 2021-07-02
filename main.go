@@ -1,8 +1,8 @@
 package main
 
 import (
-	"eth-viewer2/scan"
-	"eth-viewer2/test"
+	"eth-viewer/scan"
+	"eth-viewer/test"
 	"log"
 	"time"
 )
