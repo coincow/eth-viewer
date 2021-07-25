@@ -1,4 +1,4 @@
-module eth-viewer2
+module eth-viewer
 
 go 1.16
 

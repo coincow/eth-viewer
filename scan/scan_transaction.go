@@ -1,12 +1,14 @@
 package scan
 
 import (
+	"eth-viewer/db"
 	"github.com/ethereum/go-ethereum/core/types"
 	"log"
 	"math/big"
+	"time"
 )
 
-func ProcessTransaction(tx *types.Transaction, baseFee *big.Int) {
+func ProcessTransaction(tx *types.Transaction, baseFee *big.Int, time time.Time, blockNumber int64) {
 	chainId := tx.ChainId()
 	from := ""
 	msg, err := tx.AsMessage(types.NewEIP155Signer(chainId), baseFee)
@@ -35,4 +37,5 @@ func ProcessTransaction(tx *types.Transaction, baseFee *big.Int) {
 	}
 
 	log.Println("from:" + from + fromTag + "    to:" + to + toTag + "    amount:" + amount)
+	db.InsertEthTrans(tx.Hash().String(), blockNumber, time, from, to, tx.Value().Int64(), 1, tx.GasPrice().Int64())
 }

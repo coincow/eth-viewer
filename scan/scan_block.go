@@ -14,6 +14,6 @@ func ProcessBlock(client *ethclient.Client, blockNumber *big.Int, baseFee *big.I
 	}
 
 	for _, tx := range block.Transactions() {
-		ProcessTransaction(tx, baseFee)
+		ProcessTransaction(tx, baseFee, block.ReceivedAt, block.Number().Int64())
 	}
 }

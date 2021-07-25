@@ -13,7 +13,7 @@ func GetDB() *sql.DB {
 	}
 
 	log.Println("setup db")
-	db, err := DBSetup()
+	db, err := SetupDb()
 	if nil != err {
 		return nil
 	} else {

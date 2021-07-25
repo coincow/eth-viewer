@@ -2,7 +2,7 @@ package scan
 
 import (
 	"context"
-	"eth-viewer2/db"
+	"eth-viewer/db"
 	"github.com/ethereum/go-ethereum/common"
 )
 
