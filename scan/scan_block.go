@@ -13,7 +13,8 @@ func ProcessBlock(client *ethclient.Client, blockNumber *big.Int, baseFee *big.I
 		log.Fatal(err)
 	}
 
+	time := block.Header().Time
 	for _, tx := range block.Transactions() {
-		ProcessTransaction(tx, baseFee, block.ReceivedAt, block.Number().Int64())
+		ProcessTransaction(tx, baseFee, time, block.Number().Int64())
 	}
 }

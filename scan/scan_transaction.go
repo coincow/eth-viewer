@@ -5,10 +5,9 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"log"
 	"math/big"
-	"time"
 )
 
-func ProcessTransaction(tx *types.Transaction, baseFee *big.Int, time time.Time, blockNumber int64) {
+func ProcessTransaction(tx *types.Transaction, baseFee *big.Int, time uint64, blockNumber int64) {
 	chainId := tx.ChainId()
 	from := ""
 	msg, err := tx.AsMessage(types.NewEIP155Signer(chainId), baseFee)

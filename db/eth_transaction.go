@@ -1,8 +1,6 @@
 package db
 
-import "time"
-
-func InsertEthTrans(txHash string, blockNum int64, timestamp time.Time, from string, to string, value int64, fee int64, gasPrice int64) {
+func InsertEthTrans(txHash string, blockNum int64, timestamp uint64, from string, to string, value int64, fee int64, gasPrice int64) {
 	db := GetDB()
 	if nil == db {
 		return
@@ -14,7 +12,7 @@ func InsertEthTrans(txHash string, blockNum int64, timestamp time.Time, from str
 		return
 	}
 
-	_, err = stmt.Exec(txHash, blockNum, timestamp.Unix(), from, to, value, fee, gasPrice)
+	_, err = stmt.Exec(txHash, blockNum, timestamp, from, to, value, fee, gasPrice)
 	if err != nil {
 		print(err)
 		return
